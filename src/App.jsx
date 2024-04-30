@@ -66,17 +66,21 @@ function App() {
   }
   return (
     <main className="p-8 w-screen h-screen">
-      <header className="relative w-100">
-        <form class="max-w-md mx-auto">
+      <header className="relative w-full">
+        {" "}
+        {/* Cambiar de w-100 a w-full para asegurarte de que ocupe todo el ancho */}
+        <form className="max-w-md mx-auto">
+          {" "}
+          {/* mx-auto asegura que el formulario esté centrado horizontalmente */}
           <label
-            for="default-search"
-            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
+            htmlFor="default-search"
+            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
             Search
           </label>
-          <div class="relative">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <div className="relative">
+            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
-                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                className="w-4 h-4 text-gray-500 dark:text-gray-400"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -94,18 +98,23 @@ function App() {
               onInput={movieName}
               type="search"
               id="default-search"
-              class="block w-full p-4 ps-10 text-sm rounded-lg   bg-[#2A2A2C] border-gray-600placeholder-gray-400 dark:text-white outline-none"
+              className="block w-full p-4 ps-10 text-sm rounded-lg bg-[#2A2A2C] border-gray-600 placeholder-gray-400 dark:text-white outline-none"
               placeholder="Search Mockups, Logos..."
               required
             />
           </div>
         </form>
+        {/* Contenedor de resultados de películas centrado */}
         <div
           className={`${
             data.length === 0 ? "hidden" : ""
-          } sectionOfMovies p-4 mt-2 max-h-[300px] overflow-auto bg-[#19191B] rounded-lg max-w-md mx-auto shadow-lg flex flex-col gap-4`}>
+          } absolute p-4 mt-2 max-h-[300px] overflow-auto bg-[#19191B] rounded-lg max-w-md shadow-lg flex flex-col gap-4`}
+          style={{
+            left: "50%", // Centra horizontalmente
+            transform: "translateX(-50%)", // Ajusta para que el centro del div quede en el centro del contenedor
+          }}>
           {data.map((movie) => (
-            <div key={movie.id} className="flex gap-4  ">
+            <div key={movie.id} className="flex gap-4">
               <picture className="flex justify-start">
                 <img
                   loading="lazy"
@@ -115,8 +124,6 @@ function App() {
                 />
               </picture>
               <div className="flex flex-col justify-center">
-                {" "}
-                {/* Alinea el contenido verticalmente */}
                 <h3 className="text-[#EEEEF0] text-xl">{movie.title}</h3>
                 <span className="text-[#fd0]">
                   <i className="fa-solid fa-star"></i>

@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom CSS para scrollbar (agregar a tu archivo de Tailwind CSS o CSS personalizado) */
+::-webkit-scrollbar {
+    width: 6px;
+    /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #2A2A2C;
+    /* Color del track del scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+    /* Color del pulgar del scrollbar */
+    border-radius: 2px;
+    /* Redondeo de esquinas */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #333;
+    /* Cambiar color al hacer hover */
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #111;
+    /* Cambiar color al hacer click */
+}
